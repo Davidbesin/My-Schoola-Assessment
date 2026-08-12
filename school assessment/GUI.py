@@ -14,19 +14,26 @@ distance_of_planet_list = []
 moons_of_planet_list = []
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-image_path = os.path.join(script_dir, "SolarSystem.png")
-background_image = PhotoImage(file=image_path)
 
 
-#https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
-image_label = Label(root, image = background_image)
-image_label.place(x=0, y=0, relwidth=1, relheight=1)  # fill whole window
+
+
+
+try:#https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
+    image_path = os.path.join(script_dir, "SolarSystem.png")
+    background_image = PhotoImage(file=image_path)
+    image_label = Label(root, image = background_image)
+    image_label.place(x=0, y=0, relwidth=1, relheight=1)  # fill whole window
+except:
+    print("No bg image at planned path")
+
+
 label = Label(root, text="Background Image Credit: NASA/JPL!", bg="black", fg="white")
 label.place(relx=0.5, rely=0.05, anchor="n")  # sits on top, near the top
 
 
-
 #https://www.geeksforgeeks.org/python/python-creating-a-button-in-tkinter/
+
 #https://www.geeksforgeeks.org/python/how-to-place-a-button-at-any-position-in-tkinter/
 def create_menu_buttons():
     name_of_planet_button = Button(root, text="Name of Planets.", font=("Arial", 12), relief="solid", borderwidth=1, command = click_name_of_planet_button)
@@ -163,8 +170,6 @@ def click_enter():
     entry_field.delete(0, END)
     answer = query(question).get_answer()
     output_label.config(text=answer)
-
-
 
 
 #START
