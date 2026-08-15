@@ -15,11 +15,8 @@ moons_of_planet_list = []
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-
-
-
-
-try:#https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
+#https://www.geeksforgeeks.org/python/how-to-use-images-as-backgrounds-in-tkinter/
+try:
     image_path = os.path.join(script_dir, "SolarSystem.png")
     background_image = PhotoImage(file=image_path)
     image_label = Label(root, image = background_image)
@@ -175,18 +172,19 @@ def click_enter():
 #START
 create_menu_buttons()
 
-
+#https://www.geeksforgeeks.org/python/python-tkinter-entry-widget/
 input_label = Label(root, text="Query information about the Solar System Here", font=("Arial", 12))
 input_label.place(relx=0.089, rely=0.70, relwidth=0.647, relheight=0.05) 
 # input field
 entry_field = Entry(root, font=("Arial", 12))
 entry_field.place(relx=0.089, rely=0.765, relwidth=0.647, relheight=0.073)
 
-# enter button, beside the input field
+
+# enter button
 enter_button = Button(root, text="enter", font=("Arial", 12), relief="solid", borderwidth=1, command=click_enter)
 enter_button.place(relx=0.796, rely=0.765, relwidth=0.1175, relheight=0.073)
 
-# output label, spans full width below input/enter
+# output label
 output_label = Label(root, text="", font=("Arial", 12), bg="white", fg="black", relief="solid", borderwidth=1)
 output_label.place(relx=0.089, rely=0.876, relwidth=0.825, relheight=0.074)
 
